@@ -3,19 +3,19 @@ OpenSSL PKI
 This is a small openssl based PKI. It uses convention of ID and filename based system. As base configuration it will copy the openssl.cnf file from your Windows or Linux distribution during the creation of a (sub) Certification authority.
 All dynamic files are located in the demoCA directory. The openssl.cnf file will be in the current directory of your CA.
 Each certificate will have following files based on the <ID> of certification generation of request:
-  - demoCA/certs/<ID>.crt : binary certificate
-  - demoCA/certs/<ID>_cert.pem : PEM encoded certificate
-  - demoCA/certs/<ID>_chain.p7c : binary certificate chain
-  - demoCA/certs/<ID>_chain.pem : PEM enconded certificate chain
-  - demoCA/p12/<ID>.p12 : PKCS12 with private key, certificate and certificate chain
-  - demoCA/private/<ID>_key.pem : PEM encoded private key
-  - demoCA/req/<ID>_req.pem: PEM encoded certificate request
+  - demoCA/certs/\<ID>.crt : binary certificate
+  - demoCA/certs/\<ID>_cert.pem : PEM encoded certificate
+  - demoCA/certs/\<ID>_chain.p7c : binary certificate chain
+  - demoCA/certs/\<ID>_chain.pem : PEM enconded certificate chain
+  - demoCA/p12/\<ID>.p12 : PKCS12 with private key, certificate and certificate chain
+  - demoCA/private/\<ID>_key.pem : PEM encoded private key
+  - demoCA/req/\<ID>_req.pem: PEM encoded certificate request
 
 Run the setenv.(bat|sh) to add the bin directory to your path or copy the script to a directory accessible by your PATH.
 On Linux:
-. setenv.sh<ENTER>
+. setenv.sh\<ENTER>
 On Windows:
-setenv.bat<ENTER>
+setenv.bat\<ENTER>
 
 If you want to backup the Certification Authority. You backup the demoCA directory with the openssl.cnf file.
 
