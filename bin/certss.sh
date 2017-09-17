@@ -1,0 +1,34 @@
+#!/bin/bash
+
+set -e
+
+if [ $# -eq 0 ]; then
+  echo "certss <ID> [user extensions section (usr_cert)]"
+  echo "This creates a <ID>_cert.crt file."
+  exit -1
+fi
+
+if [ -e ./demoCA/certs/$1.crt ]; then
+  echo "Certificate already exists."
+  exit -2
+fi 
+
+if [ $# -gt 1 ] && [ -n $2 ]; then
+  USER_EXT="-extensions $2"
+else
+  USER_EXT=""  
+fi
+
+echo "--------------------"
+echo "Copy user csr       "
+echo "--------------------"
+cp $1.pem ./demoCA/req/$1_ss.pem
+
+echo "---------------------------"
+echo "Generating user certificate"
+echo "---------------------------"
+openssl ca -config ./openssl.cnf -out ./demoCA/certs/$1_cert.pem -keyfile ./demoCA/private/cakey.pem $USER_EXT -ss_cert ./demoCA/req/$1_ss.pem -batch
+openssl x509 -in ./demoCA/certs/$1_cert.pem -inform PEM -out ./demoCA/certs/$1.crt -outform DER
+createchain.sh $1
+
+exit 0

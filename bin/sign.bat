@@ -1,0 +1,1 @@
+openssl smime -sign -binary -signer certs\%2_cert.pem -inkey private\%2_key.pem -in plain\%1 -out cipher\%1.p7s -outform DER
