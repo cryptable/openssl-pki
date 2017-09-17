@@ -2,7 +2,7 @@
 set -e
 
 if [ $# -eq 0 ]; then
-  echo "gencert <ID> [user extensions section (usr_cert)"
+  echo "gencert <ID> [user extensions section (usr_cert)]"
   echo "This creates a <ID>.p12 file."
   exit -1
 fi
