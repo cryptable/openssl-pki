@@ -13,8 +13,11 @@ Each certificate will have following files based on the <ID> of certification ge
 
 Run the setenv.(bat|sh) to add the bin directory to your path or copy the script to a directory accessible by your PATH.
 On Linux:
+
 . setenv.sh\<ENTER>
+
 On Windows:
+
 setenv.bat\<ENTER>
 
 If you want to backup the Certification Authority. You backup the demoCA directory with the openssl.cnf file.
