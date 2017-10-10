@@ -12,6 +12,12 @@ else
   CHANGE_CNF="false"
 fi
 
+if [ "$1" = "customconfig" ]; then
+  CUSTOM_CNF="true"
+else
+  CUSTOM_CNF="false"
+fi
+
 if [ -d ./demoCA ]; then
   rm -rf ./demoCA
 fi 
@@ -27,11 +33,14 @@ mkdir -p ./demoCA/cipher
 mkdir -p ./demoCA/verify
 mkdir -p ./demoCA/temp
 
-cp $OPENSSL_DIR/openssl.cnf ./openssl.cnf
+
+if [ $CUSTOM_CNF = "false" ]; then
+  cp $OPENSSL_DIR/openssl.cnf ./openssl.cnf
+fi
 
 echo $CHANGE_CNF
 if [ $CHANGE_CNF = "true" ]; then
- vi ./openssl.cnf
+  vi ./openssl.cnf
 fi
 
 touch ./demoCA/index.txt
