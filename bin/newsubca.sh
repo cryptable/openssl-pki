@@ -43,6 +43,7 @@ fi
 
 touch ./demoCA/index.txt
 echo 01 > ./demoCA/crlnumber
+echo 00000001 > ./demoCA/serial
 openssl req -config ./openssl.cnf -new -keyout ./demoCA/private/cakey.pem -out ./demoCA/careq.pem
 
 exit 0
