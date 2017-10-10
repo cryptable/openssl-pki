@@ -1,0 +1,3 @@
+# execute with source setenv.source
+
+export PATH=$PATH:$(pwd)/bin
