@@ -33,7 +33,7 @@ mkdir -p ./demoCA/cipher
 mkdir -p ./demoCA/verify
 mkdir -p ./demoCA/temp
 
-if [ $CHANGE_CNF = "false" ]; then
+if [ $CUSTOM_CNF = "false" ]; then
   cp $OPENSSL_DIR/openssl.cnf ./openssl.cnf
 fi
 
