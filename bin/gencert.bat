@@ -8,7 +8,7 @@ if "%1"=="" goto USAGE
 if exist .\demoCA\p12\%1.p12 goto USER_EXISTS
 rem * Config file checking
 if not "%2"=="" (
-set USER_EXT="-extensions %2" 
+set USER_EXT=-extensions %2
 ) else (
 set USER_EXT=
 )
